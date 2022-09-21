@@ -3,20 +3,19 @@ import LoginPage from "../PageObjects/LoginPage";
 import LandingPage from "../PageObjects/LandingPage";
 import HomePage from "../PageObjects/HomePage";
 import AppointmentConfirmationPage from "../PageObjects/AppointmentConfirmationPage";
-
+let username = "John Doe",
+  password = "ThisIsNotAPassword",
+  facility = "Seoul CURA Healthcare Center",
+  hospitalReadmission = "Yes",
+  healthcareProgram = "None",
+  visitDate = "22/12/2022",
+  comment = "This is a test";
+const loginP = new LoginPage();
+const landingP = new LandingPage();
+const homeP = new HomePage();
+const appointmentConfP = new AppointmentConfirmationPage();
 describe("Make an Appointment Test", () => {
   it("User is able to book an appointment successfully", () => {
-    const loginP = new LoginPage();
-    const landingP = new LandingPage();
-    const homeP = new HomePage();
-    const appointmentConfP = new AppointmentConfirmationPage();
-    let username = "John Doe",
-      password = "ThisIsNotAPassword",
-      facility = "Seoul CURA Healthcare Center",
-      hospitalReadmission = "Yes",
-      healthcareProgram = "None",
-      visitDate = "22/12/2022",
-      comment = "This is a test";
     landingP.clickMakeAppointmentLink();
     loginP.fillUsername(username);
     loginP.fillPassword(password);

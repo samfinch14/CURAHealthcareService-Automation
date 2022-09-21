@@ -11,20 +11,19 @@ let username = "John Doe",
   healthcareProgram = "None",
   visitDate = "27/11/2023",
   comment = "This is a test for History link";
+const loginP = new LoginPage();
+const landingP = new LandingPage();
+const homeP = new HomePage();
+const appointmentHistP = new AppointmentHistoryPage();
+const appointmentConfP = new AppointmentConfirmationPage();
 describe("Appointment History Test", () => {
   beforeEach(() => {
-    const loginP = new LoginPage();
-    const landingP = new LandingPage();
     landingP.clickMakeAppointmentLink();
     loginP.fillUsername(username);
     loginP.fillPassword(password);
     loginP.clickLogin();
   });
   it("User is able to view history with appointment", () => {
-    const homeP = new HomePage();
-    const landingP = new LandingPage();
-    const appointmentHistP = new AppointmentHistoryPage();
-    const appointmentConfP = new AppointmentConfirmationPage();
     homeP.selectFacility(facility);
     homeP.clickHospitalReadmission(hospitalReadmission);
     homeP.selectHealthcareProgram(healthcareProgram);
@@ -45,9 +44,6 @@ describe("Appointment History Test", () => {
     appointmentConfP.elements.commentSummary().should("have.text", comment);
   });
   it("User is able to view history without appointment", () => {
-    const homeP = new HomePage();
-    const landingP = new LandingPage();
-    const appointmentHistP = new AppointmentHistoryPage();
     landingP.clickHamburgerIcon();
     homeP.clickHistoryLinkMenu();
     appointmentHistP.elements.historyPageTitle().should("have.text", "History");

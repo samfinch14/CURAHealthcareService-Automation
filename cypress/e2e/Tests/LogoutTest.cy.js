@@ -2,12 +2,11 @@
 import LoginPage from "../PageObjects/LoginPage";
 import LandingPage from "../PageObjects/LandingPage";
 import HomePage from "../PageObjects/HomePage";
-
+const loginP = new LoginPage();
+const landingP = new LandingPage();
+const homeP = new HomePage();
 describe("Logout link Test", () => {
   it("Verify Logout link is working", () => {
-    const loginP = new LoginPage();
-    const landingP = new LandingPage();
-    const homeP = new HomePage();
     landingP.clickHamburgerIcon();
     landingP.clickLoginLink();
     loginP.fillUsername("John Doe");

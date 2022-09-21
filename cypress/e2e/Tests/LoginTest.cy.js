@@ -2,10 +2,10 @@
 import LoginPage from "../PageObjects/LoginPage";
 import LandingPage from "../PageObjects/LandingPage";
 import HomePage from "../PageObjects/HomePage";
+const loginP = new LoginPage();
+const landingP = new LandingPage();
 describe("Login Test", () => {
   it("Valid login test", () => {
-    const loginP = new LoginPage();
-    const landingP = new LandingPage();
     const homeP = new HomePage();
     landingP.clickHamburgerIcon();
     landingP.clickLoginLink();
@@ -15,8 +15,6 @@ describe("Login Test", () => {
     homeP.elements.homePageTitle().should("have.text", "Make Appointment");
   });
   it("Invalid login test", () => {
-    const loginP = new LoginPage();
-    const landingP = new LandingPage();
     landingP.clickHamburgerIcon();
     landingP.clickLoginLink();
     loginP.fillUsername("123");

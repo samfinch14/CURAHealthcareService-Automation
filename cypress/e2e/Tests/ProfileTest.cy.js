@@ -3,12 +3,12 @@ import LoginPage from "../PageObjects/LoginPage";
 import LandingPage from "../PageObjects/LandingPage";
 import HomePage from "../PageObjects/HomePage";
 import ProfilePage from "../PageObjects/ProfilePage";
+const loginP = new LoginPage();
+const landingP = new LandingPage();
+const homeP = new HomePage();
+const profileP = new ProfilePage();
 describe("Profile page test", () => {
   it("Verify Profile page is loaded successfully", () => {
-    const loginP = new LoginPage();
-    const landingP = new LandingPage();
-    const homeP = new HomePage();
-    const profileP = new ProfilePage();
     let username = "John Doe",
       password = "ThisIsNotAPassword";
     landingP.clickMakeAppointmentLink();
